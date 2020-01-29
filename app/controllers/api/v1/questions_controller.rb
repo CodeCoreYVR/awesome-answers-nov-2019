@@ -1,5 +1,6 @@
 class Api::V1::QuestionsController < Api::ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
+    before_action :find_question, only: [:show, :edit, :update]
 
     def create 
         question = Question.new question_params 
@@ -24,11 +25,30 @@ class Api::V1::QuestionsController < Api::ApplicationController
     end
 
     def show 
-        question = Question.find(params[:id])
-        render json: question#, include: ['answers.author']
+        render json: @question#, include: ['answers.author']
+    end
+
+    def edit
+    end
+
+    def update
+        if @question.update question_params
+            render json: { id: @question.id }
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @question.destroy
+        render(json: { status: 200 }, status: 200)
     end
 
     private
+
+    def find_question
+        @question = Question.find params[:id]
+    end
 
     def question_params
         params.require(:question).permit(:title, :body)
