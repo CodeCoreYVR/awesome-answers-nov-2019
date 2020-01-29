@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BootcampNovember19AwesomeAnswers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <nav>
+    <% if user_signed_in? %>
+      Hello <%= current_user.full_name %>,
+      <%= link_to "Logout", session_path, method: :delete,
+        data: {confirm: "Are you sure you want to log out?"}%>
+        |
+        <%= link_to "Liked Questions", liked_questions_path %>
+    <% else %>
+      <%= link_to "Login", new_session_path %> |
+      <%= link_to "Sign Up", new_user_path %>
+    <% end %>
+    <hr>
+      <%# <a href="/">Home</a> %>
+      <%= link_to 'Home', root_path %>
+      |
+      <%= link_to 'All Questions', questions_path %>
+      |
+      <%= link_to 'New Question', new_question_path %>
+      |
+      <%= link_to 'Contact Us', contacts_new_path %>
+    </nav>
+    <p>
+    <%#= flash[:notice] || flash[:alert]%>
+    <% flash.each do |type, message| %>
+      <div class="flash flash-<%= type %>">
+        <%= message %>
+      </div>
+    <% end %>
+    </p>
+    <%= yield %>
+  </body>
+</html>

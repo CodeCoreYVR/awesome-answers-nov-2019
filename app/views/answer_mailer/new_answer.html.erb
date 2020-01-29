@@ -1,0 +1,14 @@
+<p>Hello <%= @owner.full_name %>,</p>
+
+<p>You got a new answer to your question</p>
+  
+<p>Question title: <%= @question.title %></p>
+
+<p>The answer: <%= @answer.body %></p>
+
+<%= link_to 'Click Here', "#{question_url(@question)}##{dom_id(@answer)}" %> to view the question.
+
+<p>Regards,</p>
+
+
+<p>Awesome Answers Team</p>

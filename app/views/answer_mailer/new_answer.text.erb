@@ -1,0 +1,9 @@
+Hello <%= @owner.full_name%>
+You got a new answer to your question
+Question title: <%= @question.title%>
+
+The answer : <%= @answer.body%>
+
+Click here: <%= "#{question_url(@question)}##{dom_id(@answer)}"%> to view question.
+Regards
+Awesome Answer Team
