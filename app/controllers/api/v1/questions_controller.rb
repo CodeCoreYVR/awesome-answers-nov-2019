@@ -1,6 +1,6 @@
 class Api::V1::QuestionsController < Api::ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]
-    before_action :find_question, only: [:show, :edit, :update]
+    # before_action :authenticate_user!, except: [:index, :show]
+    before_action :find_question, only: [:show, :edit, :update, :destroy]
 
     def create 
         question = Question.new question_params 
