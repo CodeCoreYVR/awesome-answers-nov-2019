@@ -28,6 +28,9 @@ module BootcampNovember19AwesomeAnswers
     # database
     config.active_job.queue_adapter = :delayed_job
 
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, key: '_bootcamp_november19_awesome_answers_session'
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
