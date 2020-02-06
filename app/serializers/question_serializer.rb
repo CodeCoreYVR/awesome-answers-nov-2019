@@ -29,8 +29,8 @@ class QuestionSerializer < ActiveModel::Serializer
   # To customize a serializer for associated models you can
   # define a serialzier within  the current serializer
   class AnswerSerializer < ActiveModel::Serializer
-    attributes :id, :body, :created_at, :updated_at, :user_id
-    belongs_to(:user, key: :author)
+    attributes :id, :body, :created_at, :updated_at
+    belongs_to :user, key: :author
   end
 
 end

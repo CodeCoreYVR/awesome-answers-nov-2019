@@ -25,7 +25,7 @@ class Api::V1::QuestionsController < Api::ApplicationController
     end
 
     def show 
-        render json: @question#, include: ['answers.author']
+        render json: @question, include: ['answers.author']
     end
 
     def edit
