@@ -25,7 +25,15 @@ class Api::V1::QuestionsController < Api::ApplicationController
     end
 
     def show 
-        render json: @question, include: ['answers.author']
+        # render json: @question, include: ['answers.author']
+        @question = Question.find params[:id]
+        render(
+            json: @question,
+            # We need to do this to make sure that Rails
+            # includes the nested user association for answers
+            # (which is renamed to author in the serializer).
+            include: [ :author, {answers: [ :author ]} ]
+        )
     end
 
     def edit
