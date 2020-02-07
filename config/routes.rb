@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  namespace :api do 
-    namespace :v1 do 
-      get 'user/current'
-    end
-  end
+  # namespace :api do 
+  #   namespace :v1 do 
+  #     get 'user/current'
+  #   end
+  # end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   # This defines a `route` rule that says when we receive a GET
@@ -90,7 +90,7 @@ Rails.application.routes.draw do
         #/api/v1/questions 
       resource :session, only: [:create, :destroy]
         #/api/v1/session 
-      resource :users, only: [:create] do 
+      resources :users, only: [:create] do 
         # api/v1/user/current
         get :current, on: :collection 
         # default
