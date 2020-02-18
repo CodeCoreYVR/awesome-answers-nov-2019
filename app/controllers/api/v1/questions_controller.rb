@@ -43,7 +43,10 @@ class Api::V1::QuestionsController < Api::ApplicationController
         if @question.update question_params
             render json: { id: @question.id }
         else
-            render :edit
+            render(
+                json: { errors: @question.errors }, 
+                status: 422 # Unprocessable Entity
+                )
         end
     end
 
