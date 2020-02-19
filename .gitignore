@@ -30,3 +30,4 @@
 yarn-debug.log*
 .yarn-integrity
 app_key.rb
+api_keys.rb

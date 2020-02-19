@@ -1,0 +1,10 @@
+<h1>Gift User</h2>
+
+<%= form_with model: [@user, @gift], local:true do |f| %>
+        <div>
+            <%= f.label :amount %>
+            <%= f.number_field :amount %>
+        </div>
+        <%= f.submit 'Gift User!', class: 'btn btn-primary' %>
+<% end %>
+  

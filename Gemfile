@@ -23,6 +23,8 @@ gem 'bcrypt', '~> 3.1.7'
 #Hashing is the process of applying mathematical functions and algorithms to a string of data to produce a unique output string. While creating a new user, the plain text password gets hashed then saved into the database. When the user signs in, the input password gets hashed and compared with the hashed password stored in the database. This technique is called one-way encryption, meaning, the same inputs with the same hashing function will always give the same output.
 
 gem 'rack-cors'
+# Stripe gem
+gem 'stripe'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

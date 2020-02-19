@@ -48,6 +48,8 @@ class User < ApplicationRecord
     #   If it is present, a validation will verify that it is
     #   identical to the `password` accessor.
 
+    has_many :sent_gifts, class_name: 'Gift', foreign_key: :sender_id, dependent: :nullify
+    has_many :received_gifts, class_name: 'Gift', foreign_key: :receiver_id, dependent: :nullify
 
 
     def full_name

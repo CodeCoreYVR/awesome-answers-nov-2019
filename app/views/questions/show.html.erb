@@ -2,6 +2,9 @@
 <h1><%= @question.title %></h1>
 <h4>Created by: <%= @question.user&.full_name || 'DELETED' %></h4>
 <p><%= @question.body %></p>
+<h4>
+    Created by: <%= link_to @question.user&.full_name || 'DELETED', @question.user %>
+</h4>
 <% unless @question.tags.empty?  %>
     <p>
     Tags: 
