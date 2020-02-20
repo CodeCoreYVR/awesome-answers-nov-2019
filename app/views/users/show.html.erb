@@ -1,3 +1,7 @@
 <h1><%= @user.full_name.titleize %></h1>
 
+<div>
+    <%= image_tag(@user.avatar) if @user.avatar.attached? %>
+</div>
+
 <%= link_to 'Gift User', new_user_gift_path(@user) %>

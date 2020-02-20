@@ -33,6 +33,11 @@
         <%= f.password_field :password_confirmation %>
     </div>
 
+    <div>
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar %>
+    </div>
+
     <%= f.submit "Sign Up" %>
 
 <% end %>
