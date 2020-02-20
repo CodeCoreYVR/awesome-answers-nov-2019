@@ -5,6 +5,7 @@ class UserSerializer < ActiveModel::Serializer
   # by doing the following
   include Rails.application.routes.url_helpers
 
+
   attributes(
     :id,
     :full_name, # You can include custom methods to be serialized
@@ -17,7 +18,7 @@ class UserSerializer < ActiveModel::Serializer
   # fo multiple file uploads
   def avatars
     # has_many_attached :avatars
-    # object.avatars_attachments
+    
     object.avatars_attachments.includes(:blob).map do |attachment|
       {
         id: attachment.id,
@@ -27,4 +28,16 @@ class UserSerializer < ActiveModel::Serializer
       }
     end
   end
+
+  # for a single file upload
+  def avatar 
+    attachment = object.avatar_attachment
+    {
+      id: attachment.id,
+      name: attachment.name,
+      content_type: attachment.blob.filename.to_s,
+      url: rails_blob_url(attachment )
+    }
+  end
+
 end
