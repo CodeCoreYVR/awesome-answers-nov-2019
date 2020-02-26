@@ -25,6 +25,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors'
 # Stripe gem
 gem 'stripe'
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'underscore-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

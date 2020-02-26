@@ -7,9 +7,11 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",
+    "imports-loader": "^0.8.0",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
-    "selectize": "^0.12.6"
+    "selectize": "^0.12.6",
+    "underscore": "^1.9.2"
   },
   "version": "0.1.0",
   "devDependencies": {

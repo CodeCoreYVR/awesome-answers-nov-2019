@@ -66,6 +66,9 @@ class User < ApplicationRecord
     # To support a single file attachemnt, do:
     has_one_attached(:avatar)
 
+    geocoded_by :address
+    after_validation :geocode
+
 
     def full_name
         "#{first_name} #{last_name}".strip.squeeze

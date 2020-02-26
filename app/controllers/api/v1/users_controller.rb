@@ -40,7 +40,8 @@ class Api::V1::UsersController < Api::ApplicationController
       :password,
       :password_confirmation,
       # avatar: [] # if we have multiple uploads
-      :avatar
+      :avatar,
+      :address
     )
   end
 end
