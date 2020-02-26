@@ -32,12 +32,14 @@ class UserSerializer < ActiveModel::Serializer
   # for a single file upload
   def avatar 
     attachment = object.avatar_attachment
-    {
-      id: attachment.id,
-      name: attachment.name,
-      content_type: attachment.blob.filename.to_s,
-      url: rails_blob_url(attachment )
-    }
+    unless attachemnt.nil?
+      {
+        id: attachment.id,
+        name: attachment.name,
+        content_type: attachment.blob.filename.to_s,
+        url: rails_blob_url(attachment )
+      }
+    end
   end
 
 end
