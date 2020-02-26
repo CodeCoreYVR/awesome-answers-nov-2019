@@ -77,6 +77,7 @@ tags = Tag.all
         title: Faker::Hacker.say_something_smart,
         body: Faker::ChuckNorris.fact,
         view_count: rand(100_000),
+        aasm_state: Question.aasm.states.map(&:name).sample,
         created_at: Faker::Date.backward(days:365 * 5),
         updated_at: Faker::Date.backward(days:365 * 5),
         user_id: user.id

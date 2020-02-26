@@ -100,6 +100,38 @@ class Question < ApplicationRecord
   before_validation :capitalize_title #before saving a record, execute the capitalize_title method
   before_validation :set_default_view_count
 
+  scope :viewable, -> {
+    where(aasm_state: [:published, :answered, :not_answered])
+  }
+
+  include AASM 
+
+  aasm whiny_transitions: false do 
+    state :draft, initial: true 
+    state :published 
+    state :featured
+    state :answered 
+    state :not_answered 
+    state :archived
+
+    event :publish do 
+      transitions from: :draft, to: :published
+    end
+
+    event :answer do 
+      transitions from: [:not_answered, :published], to: :answered
+    end 
+
+    event :no_answer do 
+      transitions from: :published, to: :not_answered
+    end
+
+    event :archive do 
+      transitions from: :published, to: :archived
+    end
+
+  end
+
   # Getter
   def tag_names 
     self.tags.map{ |t| t.name }.join(", ")

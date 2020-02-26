@@ -76,7 +76,7 @@ class User < ApplicationRecord
         "#{first_name} #{last_name}".strip.squeeze
     end
 
-        def self.create_from_oauth(oauth_data)
+    def self.create_from_oauth(oauth_data)
         names = oauth_data["info"]["name"]&.split || oauth_data["info"]["nickname"]
         # Create the user
         self.create(

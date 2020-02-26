@@ -29,6 +29,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'omniauth-github'
+gem 'aasm'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

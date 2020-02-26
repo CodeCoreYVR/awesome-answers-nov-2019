@@ -33,9 +33,9 @@ class QuestionsController < ApplicationController
     def index 
         if params[:tag]
             @tag = Tag.find_or_initialize_by(name: params[:tag])
-            @questions = @tag.questions.order(created_at: :desc)
+            @questions = @tag.questions.viewable.order(created_at: :desc)
         else
-            @questions = Question.order(created_at: :desc)
+            @questions = Question.viewable.order(created_at: :desc)
         end
         respond_to do |format|
             format.html { render :index }

@@ -70,6 +70,7 @@ Rails.application.routes.draw do
     # A single question in this case. edit, update, destroy
     # show are member routes  
     get :liked, on: :collection
+    resources :publishings, only: :create
   end
 
 

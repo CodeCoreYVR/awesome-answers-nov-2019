@@ -30,6 +30,10 @@
     <%= link_to 'Edit', edit_question_path(@question.id)%>
 <% end %>
 
+<% if @question.draft? && can?(:publish, @question) %>
+    <%= link_to "Publish", question_publishings_path(@question), method: :post, 
+    class: "btn btn-primary btn-sm" %>
+<% end %>
 <br>
 
 <% if @like.present? && can?(:destroy, @like) %>

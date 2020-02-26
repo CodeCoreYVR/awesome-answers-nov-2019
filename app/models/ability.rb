@@ -85,5 +85,9 @@ class Ability
       like.user = user
     end
 
+    can(:publish, Question) do |question|
+      question.user == user 
+    end
+
   end
 end
