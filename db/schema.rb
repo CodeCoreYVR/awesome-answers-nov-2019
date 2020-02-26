@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_175422) do
+ActiveRecord::Schema.define(version: 2020_02_26_190723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,7 +127,12 @@ ActiveRecord::Schema.define(version: 2020_02_26_175422) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.string "uid"
+    t.string "provider"
+    t.string "oauth_token"
+    t.string "oauth_raw_data"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
