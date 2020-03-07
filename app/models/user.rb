@@ -64,9 +64,9 @@ class User < ApplicationRecord
     # Then, run your migration
 
     # To Support multiple file attachments, do:
-    # has_many_attached(:avatars)
+    has_many_attached(:avatars)
     # To support a single file attachemnt, do:
-    has_one_attached(:avatar)
+    # has_one_attached(:avatar)
 
     geocoded_by :address
     after_validation :geocode

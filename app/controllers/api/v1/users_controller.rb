@@ -6,6 +6,7 @@ class Api::V1::UsersController < Api::ApplicationController
   end
 
   def update
+    byebug
     if params[:id] == "current"
       user = current_user
     else 
@@ -39,9 +40,9 @@ class Api::V1::UsersController < Api::ApplicationController
       :email,
       :password,
       :password_confirmation,
-      # avatar: [] # if we have multiple uploads
-      :avatar,
-      :address
+      :address,
+      :avatars # if we have multiple uploads
+      # :avatar
     )
   end
 end

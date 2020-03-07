@@ -11,8 +11,8 @@ class UserSerializer < ActiveModel::Serializer
     :full_name, # You can include custom methods to be serialized
     :created_at,
     :updated_at, 
-    # :avatars # multiple avatars
-    :avatar
+    :avatars # multiple avatars
+    # :avatar
   )
 
   # fo multiple file uploads
